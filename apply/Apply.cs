@@ -1,8 +1,8 @@
-﻿using System.Linq;
-
-namespace SsrsRdlManager.Apply
+﻿namespace SsrsRdlManager.Apply
 {
     using CommandLine;
+    using System.Linq;
+
 
     class ConsoleApp
     {

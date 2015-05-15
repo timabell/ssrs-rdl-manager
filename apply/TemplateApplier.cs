@@ -13,6 +13,11 @@
 
         public void Apply()
         {
+            // open the source rdl file
+            // open the destination rdl file
+            // find object matches on id
+            // copy them across
+            // write & close
         }
     }
 }

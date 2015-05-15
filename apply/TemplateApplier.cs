@@ -1,8 +1,9 @@
-﻿using System.IO;
-
+﻿
 namespace SsrsRdlManager.Apply
 {
     using System;
+    using System.IO;
+    using System.Linq;
     using System.Xml;
     using System.Xml.Linq;
     using System.Xml.XPath;
@@ -35,7 +36,18 @@ namespace SsrsRdlManager.Apply
             // copy them across
             foreach (var templateTextbox in templateTextboxes)
             {
-                targetReportItems.Add(templateTextbox);
+                // see if an item of this name already exists
+                var name = templateTextbox.Attribute("Name").Value;
+                var targetBoxes = targetReportItems.XPathSelectElements("r:Textbox", ns);
+                if (targetBoxes.Any(node => node.Attribute("Name").Value == name))
+                {
+                    // existing item
+                }
+                else
+                {
+                    // new item
+                    targetReportItems.Add(templateTextbox);
+                }
             }
 
             // write & close

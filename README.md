@@ -6,4 +6,4 @@ Planned to be a couple of unix style command line utilities to update one or mor
 
 more info in the readme of each project / tool
 
- * [apply/README.md]
+ * [apply/README.md](apply/README.md)

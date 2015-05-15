@@ -6,17 +6,20 @@
 
     class ConsoleApp
     {
+        private const int ReturnError = 1;
+        private const int ReturnSuccess = 0;
+
         static int Main(string[] args)
         {
             var parsedArgs = Parser.Default.ParseArguments<Options>(args);
             if (parsedArgs.Errors.Any())
             {
-                return 1;
+                return ReturnError;
             }
             var opts = parsedArgs.Value;
             var ta = new TemplateApplier(opts.Template, opts.Target);
             ta.Apply();
-            return 0;
+            return ReturnSuccess;
         }
 
         class Options

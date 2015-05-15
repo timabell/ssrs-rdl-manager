@@ -1,4 +1,6 @@
-﻿namespace SsrsRdlManager.Apply
+﻿using System.IO;
+
+namespace SsrsRdlManager.Apply
 {
     using System;
     using System.Xml;
@@ -37,6 +39,8 @@
             }
 
             // write & close
+            File.Delete(_targetFile);
+            target.Save(_targetFile);
         }
 
         private XDocument LoadRdl(string path)

@@ -4,4 +4,4 @@ reads a template .rdl file and adds/overwrites all the items into a target .rdl 
 
 # usage
 
-    rdl-apply template.rdl target-report.rdl
+    rdl-apply --template template.rdl --target target-report.rdl

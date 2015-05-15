@@ -13,7 +13,6 @@
 
         public void Apply()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

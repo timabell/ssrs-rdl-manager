@@ -28,7 +28,14 @@
 
             var templateTextboxes = template.XPathSelectElements("/r:Report/r:Body/r:ReportItems/r:Textbox", ns);
 
+            var targetReportItems = target.XPathSelectElement("/r:Report/r:Body/r:ReportItems", ns);
+
             // copy them across
+            foreach (var templateTextbox in templateTextboxes)
+            {
+                targetReportItems.Add(templateTextbox);
+            }
+
             // write & close
         }
 

@@ -1,7 +1,10 @@
 ﻿namespace SsrsRdlManager.Apply
 {
     using System;
+    using System.Xml;
     using System.Xml.Linq;
+    using System.Xml.XPath;
+
 
     public class TemplateApplier
     {
@@ -20,6 +23,11 @@
             // open the destination rdl file
             var target = LoadRdl(_targetFile);
             // find object matches on id
+            var ns = new XmlNamespaceManager(new NameTable());
+            ns.AddNamespace("r", "http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition");
+
+            var templateTextboxes = template.XPathSelectElements("/r:Report/r:Body/r:ReportItems/r:Textbox", ns);
+
             // copy them across
             // write & close
         }
